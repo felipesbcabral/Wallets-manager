@@ -77,11 +77,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#000000',
   },
-  rotulo: { 
-    textAlign: "left",
-    color: '#032D3C', 
-    paddingTop: 16,
-  },
   textlogin: {
     fontSize: 20,
     textAlign: 'center',
@@ -89,27 +84,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginTop: 20,
     marginBottom: 10
-  },
-  forgotPassword: {
-    color: '#032D3C',
-    opacity: 70,
-    fontSize: 12,
-    textAlign: "right",
-    marginBottom: 90
-  },
-  textCreateAccount: {
-    color: '#032D3C',
-    opacity: 70,
-    fontSize: 12,
-    textAlign: "center",
-  },
-  createAccount: {
-    marginTop: 80,
-    color: '#032D3C',
-    fontWeight: 'bold',
-    opacity: 70,
-    fontSize: 12,
-    textAlign: "center",
   },
   walletsIcon: {
     width: 80, 

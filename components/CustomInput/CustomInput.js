@@ -28,11 +28,3 @@ const styles = StyleSheet.create({
 })
 
 export default CustomInput
-
-{/* <Text style={styles.rotulo}>E-mail:</Text>
-<TextInput style={styles.input}
-  keyboardType="email-address"
-/>
-<Text style={styles.rotulo}>Senha:</Text>
-<TextInput style={styles.input} secureTextEntry={true}/>
-<Text style={ styles.forgotPassword }>Esqueci a senha</Text> */}

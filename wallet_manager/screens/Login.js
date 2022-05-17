@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, Image, ScrollView, useWindowDimensions, View, TouchableOpacity } from 'react-native';
+import { Button, StyleSheet, Text, Image, ScrollView, useWindowDimensions, View, TouchableOpacity, Alert } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Email from '../components/CustomInput/Email';
 import Password from '../components/CustomInput/Password';
 import CustomButton from '../components/CustomButton/CustomButton';
+
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function Login() {
+export default function Login(props: LoginScreenProps) {
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 
   const {height} = useWindowDimensions();
+
+const signIn = () => props.navigation.navigate("Home") 
 
   return (
     <LinearGradient  colors={['#94FC13', '#4BE3AC', '#94FC13' ]} style={styles.body}
@@ -37,7 +40,8 @@ const [password, setPassword] = useState('');
             />
         </View>
         <CustomButton
-          text="Entrar" 
+          text="Entrar"
+          onPress={signIn}
         />
         <CustomButton
           text="Esqueceu sua senha?" 
@@ -81,4 +85,4 @@ const styles = StyleSheet.create({
   walletsIconConfig: {
     alignItems: 'center',
   }
-}); 
+});

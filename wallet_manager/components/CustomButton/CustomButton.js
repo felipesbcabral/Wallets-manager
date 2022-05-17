@@ -4,8 +4,7 @@ import {View, Text, StyleSheet, Pressable } from 'react-native';
 const CustomButton = ({onPress, text, type = "PRIMARY"}) => {
     return (
         <Pressable 
-            onPress={onPress} 
-            style={[styles.container, styles[`container_${type}`]]}>
+            onPress={onPress} style={[styles.container, styles[`container_${type}`]]}>
             <Text style={[styles.text, styles[`text_${type}`]]} >{text}</Text>
         </Pressable>
     );
@@ -13,7 +12,7 @@ const CustomButton = ({onPress, text, type = "PRIMARY"}) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: '80%',
+        width: '85%',
         marginVertical: 10,
         borderRadius: 30,
         alignItems: 'center',

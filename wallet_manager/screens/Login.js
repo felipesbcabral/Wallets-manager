@@ -4,6 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Email from '../components/CustomInput/Email';
 import Password from '../components/CustomInput/Password';
 import CustomButton from '../components/CustomButton/CustomButton';
+import Test from '../components/CustomButton/Test';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -14,6 +15,8 @@ const [password, setPassword] = useState('');
   const {height} = useWindowDimensions();
 
 const signIn = () => props.navigation.navigate("Home") 
+const forgotPassword = () => props.navigation.navigate("Esqueci") 
+const createAccount = () => props.navigation.navigate("Cadastro") 
 
   return (
     <LinearGradient  colors={['#94FC13', '#4BE3AC', '#94FC13' ]} style={styles.body}
@@ -39,17 +42,19 @@ const signIn = () => props.navigation.navigate("Home")
               secureTextEntry
             />
         </View>
-        <CustomButton
+        <Test
           text="Entrar"
           onPress={signIn}
         />
         <CustomButton
           text="Esqueceu sua senha?" 
-          type="TERTIARY" 
+          type="TERTIARY"
+          onPress={createAccount}
         />
         <CustomButton
           text="Ainda não tem uma conta? Cadastre-se" 
           type="TERTIARY"
+          onPress={forgotPassword}
         />
     </LinearGradient>
   );

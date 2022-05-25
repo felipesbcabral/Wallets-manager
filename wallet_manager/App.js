@@ -1,6 +1,13 @@
 import React from 'react';
-import Login from './screens/Login.js'
+import { Provider as PaperProvider } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import Login from './screens/Login';
+import AppNavigator from './app.navigator';
 
 export default function App() {
-  return <Login></Login>
+  return (
+    <PaperProvider>
+      <AppNavigator/>
+    </PaperProvider>
+  );
 }

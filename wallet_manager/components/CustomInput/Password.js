@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     input: {
     },
     btnEye:{
-      marginTop: 3,
+      marginTop: 1,
       position: 'absolute',
       right: 25,
       top: 8

@@ -1,6 +1,18 @@
-import React from 'react';
-import Login from './screens/Login.js'
+import React, { useState, useEffect } from 'react';
+import { AuthProvider } from './contexts/AuthContext';
+import Splash from './screens/Splash';
+import AppNavigator from './app.navigator';
 
 export default function App() {
-  return <Login></Login>
+  const [exibeSplash, setExibeSplash] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setExibeSplash(false), 0);
+  }, []);
+
+  return (
+    <AuthProvider>
+      {exibeSplash ? <Splash /> : <AppNavigator />}
+    </AuthProvider>
+  );
 }

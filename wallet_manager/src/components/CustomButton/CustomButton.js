@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
     },
 
     container_PRIMARY: {
-        backgroundColor: '#F7FF56',
+      width: '75%',
+      backgroundColor: '#F7FF56',
+      borderRadius: 30,
     },
     container_TERTIARY: {},
     
@@ -32,6 +34,12 @@ const styles = StyleSheet.create({
         color: '#032D3C',
         opacity: 70
     },
+    container_logOut:{
+      width: '85%',
+      marginVertical: 10,
+      borderRadius: 30,
+      alignItems: 'center',
+    }
 })
 
 export default CustomButton

@@ -1,10 +1,11 @@
 {
   "expo": {
     "name": "trabalho-pi",
-    "slug": "snack-728aa0d8-f1ad-44e0-8d65-83fa967ccddc",
+    "slug": "snack-6811676f-f715-4c24-a9dd-5c3fdf82e718",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

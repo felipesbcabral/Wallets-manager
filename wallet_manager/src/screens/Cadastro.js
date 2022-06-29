@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import { Button, StyleSheet, Text, Image, ScrollView, useWindowDimensions, View, TouchableOpacity, Alert } from 'react-native';
+import * as firebase from 'firebase';
+import React, { useContext, useState } from 'react';
+import { Button, StyleSheet, Text, Image, ScrollView, useWindowDimensions, View, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Email from '../components/CustomInput/Email';
+import Name from '../components/CustomInput/Name';
 import Password from '../components/CustomInput/Password';
 import CustomButton from '../components/CustomButton/CustomButton';
-import Test from '../components/CustomButton/Test';
-
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function Login(props: LoginScreenProps) {
+import { UsuarioContext } from '../contexts/UsuarioContext';
+
+export default function Login( {navigation} ) {
+const [logado, setLogado] = useContext(UsuarioContext);
+const [name, setName] = useState('');
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
+const signIn = () => navigation.navigate('Login');
 
   const {height} = useWindowDimensions();
-
-const signIn = () => props.navigation.navigate("Home") 
-const forgotPassword = () => props.navigation.navigate("Esqueci") 
-const createAccount = () => props.navigation.navigate("Cadastro") 
 
   return (
     <LinearGradient  colors={['#94FC13', '#4BE3AC', '#94FC13' ]} style={styles.body}
@@ -27,34 +28,38 @@ const createAccount = () => props.navigation.navigate("Cadastro")
         <Image style={ styles.walletsIcon }source={require('../assets/wallets-icon.png')} />
         </View>
           <Text style={ styles.titulo }>
-            Wallets-Manager
+            Crie sua conta 
           </Text>
-            <Text style={ styles.textlogin }>Faça seu login</Text>
+            <Name
+              placeholder="Nome"
+              value={name}
+              setValue={setName}
+            />
             <Email
               placeholder="E-mail"
               value={email}
               setValue={setEmail}
+              secureTextEntr
             />
-            <Password
+             <Password
               placeholder="Password"
               value={password}
               setValue={setPassword}
               secureTextEntry
-            />
+            /> 
         </View>
-        <Test
-          text="Entrar"
-          onPress={signIn}
-        />
         <CustomButton
-          text="Esqueceu sua senha?" 
-          type="TERTIARY"
-          onPress={createAccount}
-        />
-        <CustomButton
-          text="Ainda não tem uma conta? Cadastre-se" 
-          type="TERTIARY"
-          onPress={forgotPassword}
+          text="Cadastrar"
+          onPress={() => {
+          firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => setLogado(true))
+            .catch((error) => alert(error.message));
+        }}
+        />   <CustomButton
+          text="Voltar"
+        onPress={signIn}
         />
     </LinearGradient>
   );
@@ -69,17 +74,10 @@ const styles = StyleSheet.create({
   },
   titulo: {
     textAlign: 'center',
-    fontSize: 35,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#000000',
-  },
-  textlogin: {
-    fontSize: 20,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    color: '#000000',
-    marginTop: 20,
-    marginBottom: 10
+
   },
   walletsIcon: {
     width: 80, 

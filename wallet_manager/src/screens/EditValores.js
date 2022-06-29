@@ -4,23 +4,27 @@ import { Button,  StyleSheet, Text, TextInput, View, TouchableOpacity, buttonCli
 import { Checkbox } from 'react-native-paper';
 import DatePicker from 'react-native-datepicker';
 import { RadioButton } from 'react-native-paper';
+import Edit from '../components/Edit';
 import Icon from 'react-native-vector-icons/AntDesign';
-export default function EditValor() {
+export default function EditValor(props: LoginScreenProps) {
   const [checked1, setChecked1] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
   const [date, setDate] = useState('13-05-2022');
+  const signIn = () => props.navigation.navigate("Home") 
   return (
  <SafeAreaView style={styles.conteudo}>
   <View>
    <View style={styles.sectionStyle}>
-   <Icon style={styles.iconBack} name= "arrowleft"  size={25}/>
+   <Icon style={styles.iconBack} name= "arrowleft"  size={25} onPress={signIn}/>
   
     <Text style={styles.headerText}>
-      Editar 
+      Editar ou Excluir Valores
       </Text>
-  <Icon style={styles.iconPoints} name= "ellipsis1" size={25}/>
+       <View style={{paddingHorizontal: 11, paddingTop:70}}>
       </View>
-      <View style={{paddingHorizontal: 11, paddingTop:100}}>
+      </View>
+      <Edit/>
+      <View style={{paddingHorizontal: 11, paddingTop:70}}>
       <Text style={styles.text}> Descrição </Text>
         <TextInput  placeholder='Descrição'  style={styles.desc}
           keyboardType="name-phone-pad"
@@ -65,20 +69,16 @@ export default function EditValor() {
   
              <View style={styles.screen}>
       <TouchableOpacity
-        onPress={buttonClickedHandler }
+        onPress={signIn}
         style={styles.roundButton1}>
         <Text style={styles.textButton}>SALVAR</Text>
       </TouchableOpacity>
-      <View>
-      </View>
-      </View>
       </View> 
-      
+      </View>
       </SafeAreaView>
 
   );
 }
-
 
 const styles = StyleSheet.create({
   conteudo: {
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
-    paddingTop: 100,
+    paddingTop: 30,
     alignItems: 'center',
   },
   textButton: {
@@ -145,7 +145,5 @@ const styles = StyleSheet.create({
   iconBack:{
     marginLeft:10
   },
-  iconPoints:{
-    marginRight:10
-  },
+
 });
